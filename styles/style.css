@@ -86,13 +86,14 @@ header{
 	line-height: 25px;
 	color: rgba(131, 131, 131, 0.7);
 	cursor: pointer;
+	
 }
 
 /* Image inside the box */
 .img-box{
 	border-radius: 50%;
-	width: 90px;
-	height: 90px;
+	height: 64%;
+	width: 35%;
 	margin: auto 0 auto 20px;
 	
 }
@@ -100,10 +101,12 @@ header{
 .user-name{
 	font-weight: 900;
 	color: rgb(58, 58, 58);
+	
 }
 
 .div-inside{
-	margin: auto 0 auto 20px;
+	margin: auto 0 auto 1em;
+	font-size: .7em;
 }
 
 .body-overlay{

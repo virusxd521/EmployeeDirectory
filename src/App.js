@@ -2,7 +2,7 @@ const main = document.querySelector(".main");
 const body = document.querySelector("body");
 
 // The URL for the users API
-const Api_url = 'https://randomuser.me/api/?results=12'
+const Api_url = 'https://randomuser.me/api/?results=12&nat=us'
 
 // Function for handling errors regarding the API
 function handleErrors(response){
@@ -82,6 +82,12 @@ const removing_all_overlay = (element_to_click, element_to_remove) => {
 // overlay function
 const overlay = (div_box, user) => {
     div_box.addEventListener("click", event => {
+        // extrarcting only the date from dob attribute
+        const regex = /\d+[-]\d+[-]\d+/;
+        const date_before_regex =  user.dob.date;
+        const birthdaty_of_user = date_before_regex.match(regex);
+        console.log(birthdaty_of_user);
+
         const overlay_div = element_class_creation("div","body-overlay");
         const div_box_overlay = element_class_creation("div","div_overlay_box");
         // X button image
@@ -94,7 +100,7 @@ const overlay = (div_box, user) => {
         const overlay_box_hr = element_class_creation('hr', 'hr-overlay');
         const number_overlay = element_class_creation('p','all-other-info-overlay', user.phone);
         const fullAddress_overlay = element_class_creation('p', 'all-other-info-overlay', `${user.location.street.number} ${user.location.street.name}, ${user.location.state} ${user.location.postcode}`)
-        const birthDay_overlay = element_class_creation('p', 'all-other-info-overlay', `Birthday: ${user.dob.date}`);
+        const birthDay_overlay = element_class_creation('p', 'all-other-info-overlay', `Birthday: ${birthdaty_of_user}`);
         // Appending childrens to the box on the overlay
         elements_easy_attachments(div_box_overlay, image_remove_box, img_overlay, name_overlay, email_overlay, location_overlay, overlay_box_hr, number_overlay, fullAddress_overlay, birthDay_overlay);
         overlay_div.appendChild(div_box_overlay);
